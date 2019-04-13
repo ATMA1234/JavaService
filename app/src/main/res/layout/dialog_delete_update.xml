@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:background="@drawable/border"
+        android:hint="Enter ID"
+        android:inputType="number"
+        android:maxLength="8"/>
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp10"
+        android:visibility="gone"
+        android:gravity="center"
+        android:background="@drawable/border"
+        android:hint="Enter Name"
+        android:inputType="text"
+        android:maxLength="20"/>
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/border"
+        android:hint="Enter age"
+        android:inputType="number"
+        android:maxLength="3"/>
+    <EditText
+        android:id="@+id/et_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/border"
+        android:hint="Enter place"
+        android:inputType="text"
+        android:maxLength="20"/>
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:hint="Search" />
+
+</LinearLayout>
