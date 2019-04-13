@@ -25,12 +25,14 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import static com.example.javaservice.Values.Constants.DIALOG_FAILURE;
 import static com.example.javaservice.Values.Constants.DIALOG_SUCCESS;
+import static com.example.javaservice.Values.Constants.DLG_DELETE;
+import static com.example.javaservice.Values.Constants.DLG_UPDATE;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int DLG_DELETE = 1;
-    private static final int DLG_UPDATE = 2;
     Button insert, delete, update, view;
     EditText name, age, location;
     SendingData sendingData;
@@ -93,85 +95,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_delete:
-                showDialoag(DLG_DELETE);
+                moveNext();
                 break;
 
             case R.id.btn_update:
-                showDialoag(DLG_UPDATE);
+                moveNext();
                 break;
 
             case R.id.btn_view:
-                Intent intent = new Intent(MainActivity.this, ViewStudents.class);
-                startActivity(intent);
-                break;
-        }
-    }
-
-    public void showDialoag(int id) {
-        Dialog dialog;
-        switch (id) {
-            case DLG_DELETE:
-                AlertDialog.Builder dialog_delete = new AlertDialog.Builder(this);
-                dialog_delete.setTitle("Delete Record");
-                @SuppressLint("InflateParams")
-                LinearLayout layout_delete = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_delete_update, null);
-                final EditText delete_id = layout_delete.findViewById(R.id.et_id);
-                Button search = layout_delete.findViewById(R.id.btn_search);
-                search.setVisibility(View.GONE);
-                dialog_delete.setView(layout_delete);
-                dialog_delete.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (TextUtils.isEmpty(delete_id.getText())) {
-                            delete_id.setError("Please Enter ID");
-                            return;
-                        }
-                        functionCall.showprogressdialog("Please wait to complete", progressDialog, "Deleting Records");
-                        SendingData.Delete_Records delete_records = sendingData.new Delete_Records(handler);
-                        delete_records.execute(delete_id.getText().toString());
-                    }
-                });
-                dialog = dialog_delete.create();
-                dialog.show();
-                break;
-
-            case DLG_UPDATE:
-                final AlertDialog.Builder dialog_update = new AlertDialog.Builder(this);
-                dialog_update.setTitle("Update Record");
-                @SuppressLint("InflateParams")
-                LinearLayout layout_update = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_delete_update, null);
-                final EditText update_id = layout_update.findViewById(R.id.et_id);
-                final EditText update_name = layout_update.findViewById(R.id.et_name);
-                final EditText update_age = layout_update.findViewById(R.id.et_age);
-                final EditText update_place = layout_update.findViewById(R.id.et_place);
-                Button search1 = layout_update.findViewById(R.id.btn_search);
-                search1.setVisibility(View.GONE);
-                update_name.setVisibility(View.VISIBLE);
-                update_age.setVisibility(View.VISIBLE);
-                update_place.setVisibility(View.VISIBLE);
-                dialog_update.setView(layout_update);
-                dialog_update.setPositiveButton("Update", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (TextUtils.isEmpty(update_id.getText())) {
-                            update_id.setError("Please Enter ID");
-                            return;
-                        }
-                        student.setId(update_id.getText().toString());
-                        student.setName(update_name.getText().toString());
-                        student.setAge(update_age.getText().toString());
-                        student.setPlace(update_place.getText().toString());
-                        Gson gson = new GsonBuilder().create();
-                        try {
-                            JSONObject jsonObject = new JSONObject(gson.toJson(student));
-                            functionCall.showprogressdialog("Please wait to complete", progressDialog, "Updating Records");
-                            SendingData.Update_Records update_records = sendingData.new Update_Records(handler, jsonObject);
-                            update_records.execute();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-                dialog = dialog_update.create();
-                dialog.show();
+                moveNext();
                 break;
         }
     }
@@ -201,5 +133,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void moveNext() {
+        Intent intent = new Intent(MainActivity.this, ViewStudents.class);
+        startActivity(intent);
     }
 }

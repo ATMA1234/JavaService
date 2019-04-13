@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import static com.example.javaservice.Values.Constants.DIALOG_FAILURE;
 import static com.example.javaservice.Values.Constants.DIALOG_SUCCESS;
+import static com.example.javaservice.Values.Constants.UPDATE_DELETE_FAILURE;
+import static com.example.javaservice.Values.Constants.UPDATE_DELETE_SUCCESS;
 
 public class ReceivingData {
 
@@ -30,18 +32,18 @@ public class ReceivingData {
     //------------------------------------------------------------------------------------------------------------------------
     void getDeleteResult(String result, Handler handler) {
         if (!TextUtils.isEmpty(result)) {
-            handler.sendEmptyMessage(DIALOG_SUCCESS);
+            handler.sendEmptyMessage(UPDATE_DELETE_SUCCESS);
         } else {
-            handler.sendEmptyMessage(DIALOG_FAILURE);
+            handler.sendEmptyMessage(UPDATE_DELETE_FAILURE);
         }
     }
 
     //------------------------------------------------------------------------------------------------------------------------
     void getUpdateResult(String result, Handler handler) {
         if (!TextUtils.isEmpty(result)) {
-            handler.sendEmptyMessage(DIALOG_SUCCESS);
+            handler.sendEmptyMessage(UPDATE_DELETE_SUCCESS);
         } else {
-            handler.sendEmptyMessage(DIALOG_FAILURE);
+            handler.sendEmptyMessage(UPDATE_DELETE_FAILURE);
         }
     }
 

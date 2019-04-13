@@ -25,7 +25,6 @@
         android:layout_marginEnd="@dimen/dp16"
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp10"
-        android:visibility="gone"
         android:gravity="center"
         android:background="@drawable/border"
         android:hint="Enter Name"
@@ -39,7 +38,6 @@
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
-        android:visibility="gone"
         android:background="@drawable/border"
         android:hint="Enter age"
         android:inputType="number"
@@ -52,19 +50,8 @@
         android:layout_marginStart="@dimen/dp16"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
-        android:visibility="gone"
         android:background="@drawable/border"
         android:hint="Enter place"
         android:inputType="text"
         android:maxLength="20"/>
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp16"
-        android:layout_marginStart="@dimen/dp16"
-        android:layout_marginTop="@dimen/dp10"
-        android:gravity="center"
-        android:hint="Search" />
-
 </LinearLayout>

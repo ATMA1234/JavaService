@@ -156,7 +156,6 @@ public class SendingData {
     public class Delete_Records extends AsyncTask<String, String, String> {
         String record;
         Handler handler;
-        JSONObject jsonObject;
 
         public Delete_Records(Handler handler) {
             this.handler = handler;
